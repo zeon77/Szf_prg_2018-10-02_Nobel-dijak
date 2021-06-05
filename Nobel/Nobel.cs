@@ -25,6 +25,13 @@ namespace Nobel
             //4.
             Console.WriteLine($"4. feladat: { nobelDíjak.First(x => x.Évszám == 2017 && x.Típus == NobelDíj.NobelDíjTípus.irodalmi).TeljesNév}");
 
+            //5. feladat: Feltétel: Szervezet, 1990-től, béke
+            Console.WriteLine($"5. feladat: ");
+            nobelDíjak
+                .Where(x => x.Vezetéknév == "" && x.Évszám >= 1990 && x.Típus == NobelDíj.NobelDíjTípus.béke)
+                .ToList()
+                .ForEach(x => Console.WriteLine($"\t{x.Évszám}: {x.Keresztnév}"));
+
             Console.ReadKey();
         }
     }
