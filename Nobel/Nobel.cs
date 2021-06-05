@@ -42,7 +42,16 @@ namespace Nobel
             nobelDíjak.GroupBy(x => x.Típus)
                 .Select(gr => new { Típus = gr.Key, db = gr.Count() }).ToList()
                 .ForEach(x => Console.WriteLine($"\t{x.Típus,-25}{x.db} db"));
-                
+
+            //8.
+            Console.WriteLine($"8. feladat: orvosi.txt");
+            string filename = "orvosi.txt";
+            List<string> orvosi = new List<string>();
+            nobelDíjak.Where(x => x.Típus == NobelDíj.NobelDíjTípus.orvosi)
+                .OrderBy(x => x.Évszám)
+                .Select(x => x.Évszám + ":" + x.TeljesNév).ToList()
+                .ForEach(x => orvosi.Add(x));
+            File.WriteAllLines(filename, orvosi);
 
             Console.ReadKey();
         }
