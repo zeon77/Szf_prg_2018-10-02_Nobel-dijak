@@ -23,6 +23,8 @@ namespace Nobel
         public string Keresztnév { get; set; }
         public string Vezetéknév { get; set; }
 
+        public string TeljesNév { get => Keresztnév + " " + Vezetéknév; }
+
         public NobelDíj(string sor)
         {
             string[] s = sor.Split(';');
