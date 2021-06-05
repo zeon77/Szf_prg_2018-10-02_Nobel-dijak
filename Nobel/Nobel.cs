@@ -16,8 +16,11 @@ namespace Nobel
             {
                 nobelDíjak.Add(new NobelDíj(sor));
             }
+            //Console.WriteLine($"Sorok száma: {nobelDíjak.Count}");
 
-            Console.WriteLine($"Sorok száma: {nobelDíjak.Count}");
+            //3.
+            var ABM = nobelDíjak.First(x => x.Keresztnév == "Arthur B." && x.Vezetéknév == "McDonald");
+            Console.WriteLine($"3. feladat: {ABM.Típus}");
 
             Console.ReadKey();
         }
