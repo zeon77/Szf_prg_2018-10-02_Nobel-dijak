@@ -37,6 +37,13 @@ namespace Nobel
             nobelDíjak.Where(x => x.Vezetéknév.Contains("Curie")).ToList()
                 .ForEach(x => Console.WriteLine($"\t{x.Évszám}: {x.TeljesNév}({x.Típus})"));
 
+            //7.
+            Console.WriteLine($"7. feladat:");
+            nobelDíjak.GroupBy(x => x.Típus)
+                .Select(gr => new { Típus = gr.Key, db = gr.Count() }).ToList()
+                .ForEach(x => Console.WriteLine($"\t{x.Típus,-25}{x.db} db"));
+                
+
             Console.ReadKey();
         }
     }
